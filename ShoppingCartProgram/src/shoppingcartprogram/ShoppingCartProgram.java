@@ -16,26 +16,21 @@ public class ShoppingCartProgram {
      * @param args the command line arguments
      */
     
-    public static String productName, currency = "$";
-    public static Double productPrice, total;
-    public static int productQuantity;
     
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        
-        
+
         Scanner scanner = new Scanner(System.in);
         
         System.out.print("What item would you like to buy? : ");
-        productName = scanner.nextLine();
+        String productName = scanner.nextLine();
         
         System.out.print("What is the price for each? : ");
-        productPrice = scanner.nextDouble();
+        double productPrice = scanner.nextDouble();
         scanner.nextLine();
         
         System.out.print("How many you like? : ");
-        productQuantity = scanner.nextInt();
+        int productQuantity = scanner.nextInt();
         scanner.nextLine();
             
         while(productQuantity < 1) {
@@ -45,12 +40,13 @@ public class ShoppingCartProgram {
             scanner.nextLine();
         }
         
-        generateReceipt();
+        String currency = "$";
+        generateReceipt(productName, productPrice, productQuantity, currency);
         
     }
     
-    public static void generateReceipt() {
-        total = productPrice * productQuantity;
+    public static void generateReceipt(String productName, double productPrice, int productQuantity, String currency) {
+        double total = productPrice * productQuantity;
         
         System.out.println("\n----------Receipt----------");
         
